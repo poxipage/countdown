@@ -14,14 +14,14 @@ var x = setInterval(function() {
 
   var distance = $countDownTime - now;
 
-  days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  days = distance > 0 ? Math.floor(distance / (1000 * 60 * 60 * 24)) : 0;
+  hours = distance > 0 ? Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)) : 0;
+  minutes = distance > 0 ? Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)) : 0;
+  seconds = distance > 0 ? Math.floor((distance % (1000 * 60)) / 1000) : 0;
 }, 1000);
 </script>
 
-<div class="grid grid-flow-col gap-5 text-center auto-cols-max">
+<div class="grid grid-flow-col text-base-content gap-5 text-center auto-cols-max">
   <div class="flex flex-col">
     <span class="countdown font-mono text-5xl">
       <span style="--value:{days};"></span>
